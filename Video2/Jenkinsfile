@@ -8,7 +8,7 @@ pipeline{
   agent {node {label 'linux'}}
   options{
     buildDiscarder(
-      logRotator(daysToKeepStr: '5', numToKeepStr: '50')
+      logRotator(daysToKeepStr: '5', numToKeepStr: '5')
     )
     disableConcurrentBuilds()
   }
