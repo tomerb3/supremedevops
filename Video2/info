@@ -1,0 +1,9 @@
+in this video I will show run jenkins docker on windows
+then pipeline job base on Jenkinsfile in this github
+with smart combobox PARAM, of Git Tags of this repo
+
+if we want also branches names the command will be 
+git ls-remote -t -h https://github.com/tomerb3/supremedevops.git
+
+and not only 
+git ls-remote -t https://github.com/tomerb3/supremedevops.git
