@@ -43,14 +43,14 @@ return gettags.text.readLines().collect { it.split()[1].replaceAll('refs/tags/',
         }
       }
     }
-    stage('Tag Name '+TagName){
+    stage('Tag Name '){
       when{ expression{!params.SkipRun}}
       stages{
 
         stage('test'){
           steps{
             script{
-              echo "running on hash ${pushedConfigHash}"
+              echo "running on tag ${TagName}"
           
           
             }
