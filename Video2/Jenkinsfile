@@ -1,9 +1,7 @@
-def itc_deployment_configs_folder='test'
-def itc_deployment_configs_branch=''
 def executingUser=''
 def configBuildTagSource=''
 def pushedConfigHash=''
-def deployment_configs_build_tag=''
+
 
 
 pipeline{
@@ -49,10 +47,10 @@ return gettags.text.readLines().collect { it.split()[1].replaceAll('refs/tags/',
       when{ expression{!params.SkipRun}}
       stages{
 
-        stage('Deployment Config Run'){
+        stage('test'){
           steps{
             script{
-              echo "running itc-deployment-configs on hash ${pushedConfigHash}"
+              echo "running on hash ${pushedConfigHash}"
           
           
             }
@@ -62,7 +60,7 @@ return gettags.text.readLines().collect { it.split()[1].replaceAll('refs/tags/',
       post{
         success{
           script{
-            env.GENERATED_BUILD_TAG=deployment_configs_build_tag
+            env.GENERATED_BUILD_TAG=build_tag
           }
         }
       }
