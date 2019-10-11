@@ -21,4 +21,4 @@ function readTextFile(file)
     rawFile.send(null);
 }
 
-readTextFile("file:///var/lib/jenkins/config.xml");
+readTextFile("file:///var/lib/jenkins/aa.txt");
