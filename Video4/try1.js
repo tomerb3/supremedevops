@@ -2,6 +2,8 @@ let x = 10;
 let y = 20;
 let result = ( x * y);
 console.log(result);
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+var xhr = new XMLHttpRequest();
 
 function readTextFile(file)
 {
@@ -22,3 +24,6 @@ function readTextFile(file)
 }
 
 readTextFile("file:///var/lib/jenkins/aa.txt");
+
+
+
