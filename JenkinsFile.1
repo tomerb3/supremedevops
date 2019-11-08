@@ -1,0 +1,9 @@
+node {
+  // ... check out code, whatever
+  
+  sh 'pwd'
+sh 'ls -ltr' 
+  final foundFiles = findFiles(glob: 'Jenkinsfile/**/*')
+  // do things with FileWrapper[]
+}
+
