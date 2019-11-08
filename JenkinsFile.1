@@ -1,19 +1,57 @@
-node {
-  // ... check out code, whatever
-  
-  
-//  def files = findFiles(glob: 'Jenkinsfile/**/*')
-  // do things with FileWrapper[]
+#!/usr/bin/env groovy
 
 
-def files = findFiles(glob: 'few_jenkins_files/Je*')
-for file in files:
-  echo """
-  ${files[0].name} ${files[0].path} ${files[0].directory} 
-  ${files[0].length} ${files[0].lastModified}
-  """
+def globals =[  
+  jobsBranchSource: "master",
+  jobPrefix: "seeded.",
+  jobSuffix: ".pipeline",
+  jenkinsJobsFolder: "jenkinsjobs",
+  seededRepoUrl: "https://github.com/tomerb3/supremedevops.git",  
+  listViewName: "Deployments"
+]
+
+final  files = findFiles(glob: 'few_jenkins_files/Je*')
+
+def config = [
+  jobs: [
+    [ name: "${globals.jobPrefix}itc-post-build-seed", 
+      description: "This job runs all other jobs with SkipRun parameter set to true, to update their UI parameters",
+      repositoryUrl:"${globals.seededRepoUrl}", 
+      branch:"${globals.jobsBranchSource}",
+      jenkinsFilePath:"${globals.jenkinsJobsFolder}/Jenkinsfile.post.seed",
+      inListView:false,
+    ]
+   
+  ]
+]
 
 
 
+//============= Generating pipline jobs
+config.jobs.each{ curJob ->
+  pipelineJob(curJob.name){
+      description(curJob.description)  
+      definition{
+      cpsScm{
+        scm{
+          git{
+            remote{
+              url("${curJob.repositoryUrl}")
+            }
+            branch("${curJob.branch}")
+          }
+        }
+        scriptPath("${curJob.jenkinsFilePath}")
+      }
+    }
+  }
 }
+
+
+
+ 
+
+
+
+
 
