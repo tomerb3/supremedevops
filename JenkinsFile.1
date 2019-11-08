@@ -2,7 +2,18 @@ node {
   // ... check out code, whatever
   
   sh 'pwd'
-  final foundFiles = findFiles(glob: 'Jenkinsfile/**/*')
+  def files = findFiles(glob: 'Jenkinsfile/**/*')
   // do things with FileWrapper[]
+
+
+/def files = findFiles(glob: 'target/surefire-reports/*.txt')
+for file in files:
+  echo """
+  ${files[0].name} ${files[0].path} ${files[0].directory} 
+  ${files[0].length} ${files[0].lastModified}
+  """
+
+
+
 }
 
