@@ -1,0 +1,12 @@
+version: '2'
+services:
+  master:
+    image: jenkins/jenkins:latest
+    restart: unless-stopped
+    ports:
+       - "8081:8080"
+    volumes:
+       - /home/user/src/jenkins/jenkinsbase/data:/var/jenkins_home
+volumes:
+    data:
+
