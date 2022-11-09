@@ -1,0 +1,35 @@
+[
+    {
+      "firstname": "Alexander",
+      "lastname": "Smith",
+      "id": "3333333",
+      "grade": 50,
+      "gender": "M",
+      "fileinfo": "file100.txt"
+    },
+    {
+      "firstname": "Lucy",
+      "lastname": "Carrie",
+      "id": "2222222",
+      "grade": 70,
+      "gender": "F",
+      "fileinfo": "file200.txt"
+    },
+    {
+      "firstname": "Jeremiah",
+      "lastname": "Springfield",
+      "id": "1111111",
+      "grade": 90,
+      "gender": "M",
+      "fileinfo": "file300.txt"
+    },
+    {
+      "firstname": "Tom",
+      "lastname": "Cohen",
+      "id": "55555555",
+      "grade": 100,
+      "gender": "M",
+      "fileinfo": "file400.txt"
+    }
+  ]
+  
